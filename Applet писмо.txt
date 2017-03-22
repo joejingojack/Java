@@ -1,0 +1,93 @@
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JTextField;
+
+
+public class AppletPismo extends Applet {
+	
+	JTextField timeF = new  JTextField(10);
+	JTextField countF = new  JTextField(10);
+	JButton button = new JButton("Start");
+	
+	public void init(){
+		this.setSize(500, 500);
+		this.add(timeF);
+		this.add(countF);
+		this.add(button);
+		
+		button.addActionListener(new StartAction());
+		
+	}// end init()
+	
+	class StartAction implements ActionListener{
+
+		public void actionPerformed(ActionEvent arg0) {
+			// TODO Auto-generated method stub
+			int time = Integer.parseInt(timeF.getText());
+			int count = Integer.parseInt(countF.getText());
+			new T(time,count).start();
+		}// end actionPerformed
+		
+	}// end StartAction
+	
+	class T extends Thread{
+		
+		int time;
+		int count;
+		Graphics gOpen = getGraphics();
+		Graphics gClosed = getGraphics();
+		
+		public T(int t,int c){
+			this.time = t;
+			this.count = c;
+		}// end counstructor
+		
+		public void run(){
+			drawBase();
+			for(int i=0;i<count;i++){
+				try {
+					
+					drawOpen();
+					sleep(time);
+					drawClosed();
+					sleep(time);
+				} catch (InterruptedException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+			}// end for
+			
+		}// end run()
+		
+		void drawBase(){
+			Graphics g = getGraphics();
+			g.drawRect(50, 50, 100, 50);
+		}
+		
+		void drawOpen(){
+			gOpen = getGraphics();
+			
+			gOpen.drawLine(50, 50, 100, 25);
+			gOpen.drawLine(100, 25, 150, 50);
+			gClosed.clearRect(51, 51, 98, 48);
+				
+		}// end drawOpen()
+		
+		void drawClosed(){
+			gClosed = getGraphics();
+			
+			gClosed.drawLine(50, 50, 100, 75);			
+			gClosed.drawLine(100, 75, 150, 50);
+			gOpen.clearRect(50, 25, 100, 24);
+			
+		}// end drawClosed()
+		
+	}// end Thread
+	
+
+}// end applet

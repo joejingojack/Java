@@ -1,0 +1,38 @@
+02-24 22:05:52 jdbc[5]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-175]
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.message.DbException.get(DbException.java:138)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:171)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:90)
+	at org.h2.Driver.connect(Driver.java:73)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:656)
+	at org.h2.server.web.WebApp.login(WebApp.java:905)
+	at org.h2.server.web.WebApp.process(WebApp.java:209)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:168)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	... 14 more
+02-24 22:05:52 jdbc[5]: null
+org.h2.message.DbException: The connection was not closed by the application and is garbage collected [90018-175]
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.message.DbException.get(DbException.java:138)
+	at org.h2.jdbc.JdbcConnection.closeOld(JdbcConnection.java:171)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:116)
+	at org.h2.jdbc.JdbcConnection.<init>(JdbcConnection.java:90)
+	at org.h2.Driver.connect(Driver.java:73)
+	at org.h2.server.web.WebServer.getConnection(WebServer.java:656)
+	at org.h2.server.web.WebApp.login(WebApp.java:905)
+	at org.h2.server.web.WebApp.process(WebApp.java:209)
+	at org.h2.server.web.WebApp.processRequest(WebApp.java:168)
+	at org.h2.server.web.WebThread.process(WebThread.java:138)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+Caused by: org.h2.jdbc.JdbcSQLException: The connection was not closed by the application and is garbage collected [90018-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	... 14 more

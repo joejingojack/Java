@@ -1,0 +1,167 @@
+--------------------
+PING/PONG (нишки)
+--------------------
+
+public class PingPong extends Thread {
+	String word;
+	int delay;
+	
+	public PingPong(String w,int d){
+		word=w;
+		delay=d;
+	}
+
+	public void run(){
+		for (int i=0;i<5;i++){
+			System.out.println(word);
+			try {
+				sleep(delay);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
+	}
+	public static void main(String[] args){
+		new PingPong("ping",33).start();
+		new PingPong("PONG",100).start();
+	}
+}
+
+
+--------------------
+PING/PONG (нишки)
+--------------------
+
+public class RunPingPong extends Thread {
+	String word;
+	int delay;
+	
+	public RunPingPong(String w,int d){
+		word=w;
+		delay=d;
+	}
+
+	public void run(){
+		for (int i=0;i<5;i++){
+			System.out.println(word);
+			try {
+				Thread.sleep(delay);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+				return;
+			}
+		}
+	}
+
+	public static void main(String[] args){
+		RunPingPong ping=new RunPingPong("ping",33);
+		RunPingPong pong=new RunPingPong("PONG",100);
+		new Thread(ping).start();
+		new Thread(pong).start();
+	
+	}
+}
+
+
+
+-----------------------------------------
+Числа (нишки)
+-----------------------------------------
+
+
+class ThreadA2 extends Thread{
+	public void run(){
+		for(int i=1;i<ThreadSleep.LIMIT;i++){
+			
+			
+			try{
+			sleep(60);
+			}catch(InterruptedException e){
+				
+			}
+			System.out.println("A: "+i);
+		}
+	}
+}
+
+
+	class ThreadB2 extends Thread{
+		public void run(){
+			for(int i=-1;i>-ThreadSleep.LIMIT;i--){
+				
+				
+				try{
+				sleep(40);
+				}catch(InterruptedException e){
+					
+				}
+				System.out.println("\t\tB: "+i);
+			}
+		}
+	}
+	public class ThreadSleep {
+		static final int LIMIT=21;
+		static Thread ta;
+		static Thread tb;
+		
+	public static void main(String[] args){
+		ta=new ThreadA2();
+		tb=new ThreadB2();
+		
+		ta.start();
+		tb.start();
+	}
+}
+
+------------------------------------------------------------------------------
+Изчертаване на фигури с нишки(такава задача на контролното 10-та седмица)!
+------------------------------------------------------------------------------
+
+import java.applet.Applet;
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class SpotTest extends Applet{
+int mx,my;
+int radius=10;
+int bordSize;
+int change;
+
+public void init(){
+this.setSize(300,300);
+bordSize=getSize().width-1;
+change=bordSize-radius;
+new Spots(Color.orange).start();
+new Spots(Color.magenta).start();
+new Spots(Color.cyan).start();
+}
+
+class Spots extends Thread{
+Color colour;
+public Spots(Color c){
+colour=c;
+}
+
+public void run(){
+while (true){
+draw();
+try{
+sleep(50);
+}catch (InterruptedException e){
+
+}
+}
+}
+
+public void draw(){
+Graphics g=getGraphics();
+g.setColor(colour);
+mx=(int)(Math.random()*1000)%change;
+my=(int)(Math.random()*1000)%change;
+
+g.drawOval(mx, my, 2*radius, radius);
+
+}
+}
+}

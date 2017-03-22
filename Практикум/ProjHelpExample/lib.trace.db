@@ -1,0 +1,962 @@
+02-24 22:02:31 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(
+PERSON_ID INT NOT NULL PRIMARY KEY,
+FIRSTNAME NVARCHAR(35) NOT NULL,
+LASTNAME NVARCHAR(35) NOT NULL,
+EMAIL NVARCHAR(50) NOT NULL,
+ADDRESS NVARCHAR(50) NOT NULL,
+PHONE NVARCHAR(20)
+)
+
+CREATE[*] TABLE AUTHOR
+(
+AUTHOR_ID INT NOT NULL PRIMARY KEY,
+NAME VARCHAR(50)
+)
+
+CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+AUTHOR_ID INT FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+)
+
+CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL FOREIGN KEY REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL FOREIGN KEY REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; SQL statement:
+CREATE TABLE Person
+(
+Person_Id int NOT NULL PRIMARY KEY,
+FirstName nvarchar(35) NOT NULL,
+LastName nvarchar(35) NOT NULL,
+Email nvarchar(50) NOT NULL,
+Address nvarchar(50) NOT NULL,
+Phone nvarchar(20)
+)
+
+CREATE TABLE Author
+(
+Author_Id int NOT NULL PRIMARY KEY,
+Name varchar(50)
+)
+
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+)
+
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL FOREIGN KEY REFERENCES Person(Person_Id),
+Book_Id int NOT NULL FOREIGN KEY REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42000-175]
+02-24 22:03:49 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(
+PERSON_ID INT NOT NULL PRIMARY KEY,
+FIRSTNAME NVARCHAR(35) NOT NULL,
+LASTNAME NVARCHAR(35) NOT NULL,
+EMAIL NVARCHAR(50) NOT NULL,
+ADDRESS NVARCHAR(50) NOT NULL,
+PHONE NVARCHAR(20)
+)
+
+CREATE[*] TABLE AUTHOR
+(
+AUTHOR_ID INT NOT NULL PRIMARY KEY,
+NAME VARCHAR(50)
+)
+
+CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+AUTHOR_ID INT FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+)
+
+CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL FOREIGN KEY REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL FOREIGN KEY REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; SQL statement:
+CREATE TABLE Person
+(
+Person_Id int NOT NULL PRIMARY KEY,
+FirstName nvarchar(35) NOT NULL,
+LastName nvarchar(35) NOT NULL,
+Email nvarchar(50) NOT NULL,
+Address nvarchar(50) NOT NULL,
+Phone nvarchar(20)
+)
+
+CREATE TABLE Author
+(
+Author_Id int NOT NULL PRIMARY KEY,
+Name varchar(50)
+)
+
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+)
+
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL FOREIGN KEY REFERENCES Person(Person_Id),
+Book_Id int NOT NULL FOREIGN KEY REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42000-175]
+02-24 22:07:45 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE DATABASE[*] LIBRARY
+USE LIBRARY
+
+CREATE TABLE PERSON
+(
+PERSON_ID INT NOT NULL PRIMARY KEY,
+FIRSTNAME NVARCHAR(35) NOT NULL,
+LASTNAME NVARCHAR(35) NOT NULL,
+EMAIL NVARCHAR(50) NOT NULL,
+ADDRESS NVARCHAR(50) NOT NULL,
+PHONE NVARCHAR(20)
+)
+
+CREATE TABLE AUTHOR
+(
+AUTHOR_ID INT NOT NULL PRIMARY KEY,
+NAME VARCHAR(50)
+)
+
+CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+AUTHOR_ID INT FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+)
+
+CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL FOREIGN KEY REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL FOREIGN KEY REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "OR, FORCE, VIEW, ALIAS, SEQUENCE, USER, TRIGGER, ROLE, SCHEMA, CONSTANT, DOMAIN, TYPE, DATATYPE, AGGREGATE, LINKED, MEMORY, CACHED, LOCAL, GLOBAL, TEMP, TEMPORARY, TABLE, PRIMARY, UNIQUE, HASH, SPATIAL, INDEX"; SQL statement:
+CREATE DATABASE Library
+USE Library
+
+CREATE TABLE Person
+(
+Person_Id int NOT NULL PRIMARY KEY,
+FirstName nvarchar(35) NOT NULL,
+LastName nvarchar(35) NOT NULL,
+Email nvarchar(50) NOT NULL,
+Address nvarchar(50) NOT NULL,
+Phone nvarchar(20)
+)
+
+CREATE TABLE Author
+(
+Author_Id int NOT NULL PRIMARY KEY,
+Name varchar(50)
+)
+
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+)
+
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL FOREIGN KEY REFERENCES Person(Person_Id),
+Book_Id int NOT NULL FOREIGN KEY REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-24 22:10:06 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(
+PERSON_ID INT NOT NULL PRIMARY KEY,
+FIRSTNAME NVARCHAR(35) NOT NULL,
+LASTNAME NVARCHAR(35) NOT NULL,
+EMAIL NVARCHAR(50) NOT NULL,
+ADDRESS NVARCHAR(50) NOT NULL,
+PHONE NVARCHAR(20)
+)
+
+CREATE[*] TABLE AUTHOR
+(
+AUTHOR_ID INT NOT NULL PRIMARY KEY,
+NAME VARCHAR(50)
+)
+
+CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+AUTHOR_ID INT FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+)
+
+CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL FOREIGN KEY REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL FOREIGN KEY REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; SQL statement:
+CREATE TABLE Person
+(
+Person_Id int NOT NULL PRIMARY KEY,
+FirstName nvarchar(35) NOT NULL,
+LastName nvarchar(35) NOT NULL,
+Email nvarchar(50) NOT NULL,
+Address nvarchar(50) NOT NULL,
+Phone nvarchar(20)
+)
+
+CREATE TABLE Author
+(
+Author_Id int NOT NULL PRIMARY KEY,
+Name varchar(50)
+)
+
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+)
+
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL FOREIGN KEY REFERENCES Person(Person_Id),
+Book_Id int NOT NULL FOREIGN KEY REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42000-175]
+02-24 22:10:59 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+AUTHOR_ID INT FOREIGN[*] KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "(, FOR, UNSIGNED, NOT, NULL, AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:33:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT AUTHOR_ID INT[*] FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:34:09 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID INT[*] FOREIGN KEY REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id int FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:34:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID INT[*] FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id int FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:34:26 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID INT[*] FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id int FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:34:51 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AUTHOR_ID" not found; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42122-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:626)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:75)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:188)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:70)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:169)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:35:16 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID FOREIGN KEY REFERENCES[*] AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "("; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:35:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AUTHOR_ID" not found; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42122-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:626)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:75)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:188)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:70)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:169)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:35:30 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID FOREIGN KEY REFERENCES[*] AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; expected "("; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42001-175]
+02-25 16:35:33 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AUTHOR_ID" not found; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42122-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:626)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:75)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:188)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:70)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:169)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:37:08 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE PERSON
+(
+PERSON_ID INT NOT NULL PRIMARY KEY,
+FIRSTNAME NVARCHAR(35) NOT NULL,
+LASTNAME NVARCHAR(35) NOT NULL,
+EMAIL NVARCHAR(50) NOT NULL,
+ADDRESS NVARCHAR(50) NOT NULL,
+PHONE NVARCHAR(20)
+)
+
+CREATE[*] TABLE AUTHOR
+(
+AUTHOR_ID INT NOT NULL PRIMARY KEY,
+NAME VARCHAR(50)
+)
+
+CREATE TABLE BOOK
+(
+BOOK_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT FK_AUTHOR_ID FOREIGN KEY (AUTHOR_ID) REFERENCES AUTHOR(AUTHOR_ID),
+TITLE NVARCHAR(100) NOT NULL,
+YEAR INT,
+ISBN NVARCHAR(20) NOT NULL
+) "; SQL statement:
+CREATE TABLE Person
+(
+Person_Id int NOT NULL PRIMARY KEY,
+FirstName nvarchar(35) NOT NULL,
+LastName nvarchar(35) NOT NULL,
+Email nvarchar(50) NOT NULL,
+Address nvarchar(50) NOT NULL,
+Phone nvarchar(20)
+)
+
+CREATE TABLE Author
+(
+Author_Id int NOT NULL PRIMARY KEY,
+Name varchar(50)
+)
+
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42000-175]
+02-25 16:37:24 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AUTHOR_ID" not found; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42122-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:626)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:75)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:188)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:70)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:169)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:39:35 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Unknown data type: "CONSTRAINT"; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+ADD CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [50004-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.command.Parser.parseColumnWithType(Parser.java:3853)
+	at org.h2.command.Parser.parseColumnForTable(Parser.java:3716)
+	at org.h2.command.Parser.parseCreateTable(Parser.java:5525)
+	at org.h2.command.Parser.parseCreate(Parser.java:4003)
+	at org.h2.command.Parser.parsePrepared(Parser.java:343)
+	at org.h2.command.Parser.parse(Parser.java:298)
+	at org.h2.command.Parser.parse(Parser.java:270)
+	at org.h2.command.Parser.prepareCommand(Parser.java:235)
+	at org.h2.engine.Session.prepareLocal(Session.java:436)
+	at org.h2.engine.Session.prepareCommand(Session.java:379)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:168)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:39:39 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Column "AUTHOR_ID" not found; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42122-175]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:626)
+	at org.h2.table.IndexColumn.mapColumns(IndexColumn.java:75)
+	at org.h2.command.ddl.AlterTableAddConstraint.tryUpdate(AlterTableAddConstraint.java:188)
+	at org.h2.command.ddl.AlterTableAddConstraint.update(AlterTableAddConstraint.java:70)
+	at org.h2.command.ddl.CreateTable.update(CreateTable.java:169)
+	at org.h2.command.CommandContainer.update(CommandContainer.java:79)
+	at org.h2.command.Command.executeUpdate(Command.java:253)
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:181)
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:156)
+	at org.h2.server.web.WebApp.getResult(WebApp.java:1321)
+	at org.h2.server.web.WebApp.query(WebApp.java:1010)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:972)
+	at org.h2.server.web.WebApp$1.next(WebApp.java:959)
+	at org.h2.server.web.WebThread.process(WebThread.java:167)
+	at org.h2.server.web.WebThread.run(WebThread.java:94)
+	at java.lang.Thread.run(Unknown Source)
+02-25 16:42:36 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK" already exists; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int NOT NULL,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42101-175]
+02-25 16:42:43 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "AUTHOR_ID[*] INT NOT NULL, "; expected "ALTER, ANALYZE, {"; SQL statement:
+Author_Id int NOT NULL, [42001-175]
+02-25 16:43:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Table "BOOK" already exists; SQL statement:
+CREATE TABLE Book
+(
+Book_Id int NOT NULL PRIMARY KEY,
+Author_Id int,
+CONSTRAINT FK_Author_Id FOREIGN KEY (Author_Id) REFERENCES Author(Author_Id),
+Title nvarchar(100) NOT NULL,
+Year int,
+ISBN nvarchar(20) NOT NULL
+) [42101-175]
+02-25 16:44:15 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL FOREIGN[*] KEY REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL FOREIGN KEY REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "AS, DEFAULT, GENERATED, NOT, NULL, AUTO_INCREMENT, BIGSERIAL, SERIAL, IDENTITY, NULL_TO_DEFAULT, SEQUENCE, SELECTIVITY, COMMENT, CONSTRAINT, PRIMARY, UNIQUE, NOT, NULL, CHECK, REFERENCES, ,, )"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL FOREIGN KEY REFERENCES Person(Person_Id),
+Book_Id int NOT NULL FOREIGN KEY REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:45:54 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+CONSTRAINT PERSON_ID INT[*] NOT NULL FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID),
+CONSTRAINT BOOK_ID INT NOT NULL FOREIGN KEY (BOOK_ID) REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+CONSTRAINT Person_Id int NOT NULL FOREIGN KEY (Person_Id) REFERENCES Person(Person_Id),
+CONSTRAINT Book_Id int NOT NULL FOREIGN KEY (Book_Id) REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:46:44 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL,
+CONSTRAINT PERSON_ID INT[*] NOT NULL FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL,
+CONSTRAINT BOOK_ID INT NOT NULL FOREIGN KEY (BOOK_ID) REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL,
+CONSTRAINT Person_Id int NOT NULL FOREIGN KEY (Person_Id) REFERENCES Person(Person_Id),
+Book_Id int NOT NULL,
+CONSTRAINT Book_Id int NOT NULL FOREIGN KEY (Book_Id) REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:46:46 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL,
+CONSTRAINT PERSON_ID INT[*] NOT NULL FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL,
+CONSTRAINT BOOK_ID INT NOT NULL FOREIGN KEY (BOOK_ID) REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL,
+CONSTRAINT Person_Id int NOT NULL FOREIGN KEY (Person_Id) REFERENCES Person(Person_Id),
+Book_Id int NOT NULL,
+CONSTRAINT Book_Id int NOT NULL FOREIGN KEY (Book_Id) REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:47:04 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL,
+CONSTRAINT PERSON_ID NOT[*] NULL FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL,
+CONSTRAINT BOOK_ID NOT NULL FOREIGN KEY (BOOK_ID) REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL,
+CONSTRAINT Person_Id NOT NULL FOREIGN KEY (Person_Id) REFERENCES Person(Person_Id),
+Book_Id int NOT NULL,
+CONSTRAINT Book_Id NOT NULL FOREIGN KEY (Book_Id) REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:47:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLException: Syntax error in SQL statement "CREATE TABLE LOANED
+(
+LOANED_ID INT NOT NULL PRIMARY KEY,
+PERSON_ID INT NOT NULL,
+CONSTRAINT PERSON_ID NOT[*] NULL FOREIGN KEY (PERSON_ID) REFERENCES PERSON(PERSON_ID),
+BOOK_ID INT NOT NULL,
+CONSTRAINT BOOK_ID NOT NULL FOREIGN KEY (BOOK_ID) REFERENCES BOOK(BOOK_ID),
+TAKEN BIT NOT NULL,
+TAKEN_ON DATETIME NOT NULL,
+READLINE DATETIME NOT NULL,
+RETURNED DATETIME NOT NULL
+) "; expected "., COMMENT, PRIMARY, INDEX, KEY, CHECK, UNIQUE, FOREIGN"; SQL statement:
+CREATE TABLE Loaned
+(
+Loaned_Id int NOT NULL PRIMARY KEY,
+Person_Id int NOT NULL,
+CONSTRAINT Person_Id NOT NULL FOREIGN KEY (Person_Id) REFERENCES Person(Person_Id),
+Book_Id int NOT NULL,
+CONSTRAINT Book_Id NOT NULL FOREIGN KEY (Book_Id) REFERENCES Book(Book_Id),
+Taken bit NOT NULL,
+Taken_on datetime NOT NULL,
+ReadLine datetime NOT NULL,
+Returned datetime NOT NULL
+) [42001-175]
+02-25 16:59:52 jdbc[4]: exception
+org.h2.jdbc.JdbcSQLException: Column "F_NAME" not found; SQL statement:
+select * from person where f_name=? [42122-174]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:144)
+	at org.h2.expression.Comparison.optimize(Comparison.java:177)
+	at org.h2.command.dml.Select.prepare(Select.java:813)
+	at org.h2.command.Parser.prepareCommand(Parser.java:231)
+	at org.h2.engine.Session.prepareLocal(Session.java:437)
+	at org.h2.engine.Session.prepareCommand(Session.java:380)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267)
+	at MainClass$SearchAction.actionPerformed(MainClass.java:217)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+02-25 17:00:08 jdbc[6]: exception
+org.h2.jdbc.JdbcSQLException: Column "F_NAME" not found; SQL statement:
+update person set f_name=? where person_id=? [42122-174]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.table.Table.getColumn(Table.java:624)
+	at org.h2.command.Parser.readTableColumn(Parser.java:668)
+	at org.h2.command.Parser.parseUpdate(Parser.java:702)
+	at org.h2.command.Parser.parsePrepared(Parser.java:437)
+	at org.h2.command.Parser.parse(Parser.java:289)
+	at org.h2.command.Parser.parse(Parser.java:261)
+	at org.h2.command.Parser.prepareCommand(Parser.java:226)
+	at org.h2.engine.Session.prepareLocal(Session.java:437)
+	at org.h2.engine.Session.prepareCommand(Session.java:380)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267)
+	at MainClass$EditAction.actionPerformed(MainClass.java:196)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
+02-25 17:00:11 jdbc[7]: exception
+org.h2.jdbc.JdbcSQLException: Column "F_NAME" not found; SQL statement:
+select f_name,l_name from person [42122-174]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:332)
+	at org.h2.message.DbException.get(DbException.java:172)
+	at org.h2.message.DbException.get(DbException.java:149)
+	at org.h2.expression.ExpressionColumn.optimize(ExpressionColumn.java:144)
+	at org.h2.command.dml.Select.prepare(Select.java:810)
+	at org.h2.command.Parser.prepareCommand(Parser.java:231)
+	at org.h2.engine.Session.prepareLocal(Session.java:437)
+	at org.h2.engine.Session.prepareCommand(Session.java:380)
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1138)
+	at org.h2.jdbc.JdbcPreparedStatement.<init>(JdbcPreparedStatement.java:70)
+	at org.h2.jdbc.JdbcConnection.prepareStatement(JdbcConnection.java:267)
+	at MainClass.getPNames(MainClass.java:123)
+	at MainClass$StartAction.actionPerformed(MainClass.java:160)
+	at javax.swing.AbstractButton.fireActionPerformed(Unknown Source)
+	at javax.swing.AbstractButton$Handler.actionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(Unknown Source)
+	at javax.swing.DefaultButtonModel.setPressed(Unknown Source)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(Unknown Source)
+	at java.awt.Component.processMouseEvent(Unknown Source)
+	at javax.swing.JComponent.processMouseEvent(Unknown Source)
+	at java.awt.Component.processEvent(Unknown Source)
+	at java.awt.Container.processEvent(Unknown Source)
+	at java.awt.Component.dispatchEventImpl(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.processMouseEvent(Unknown Source)
+	at java.awt.LightweightDispatcher.dispatchEvent(Unknown Source)
+	at java.awt.Container.dispatchEventImpl(Unknown Source)
+	at java.awt.Window.dispatchEventImpl(Unknown Source)
+	at java.awt.Component.dispatchEvent(Unknown Source)
+	at java.awt.EventQueue.dispatchEventImpl(Unknown Source)
+	at java.awt.EventQueue.access$200(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.awt.EventQueue$3.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.awt.EventQueue$4.run(Unknown Source)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(Unknown Source)
+	at java.awt.EventQueue.dispatchEvent(Unknown Source)
+	at java.awt.EventDispatchThread.pumpOneEventForFilters(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForFilter(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEventsForHierarchy(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.pumpEvents(Unknown Source)
+	at java.awt.EventDispatchThread.run(Unknown Source)
